@@ -499,9 +499,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388229275d3684044a18201346eb18d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
-  Acceleration: 0
-  JumpHeight: 70
+  _health: 1
+  _speed: 20
+  _jumpHeight: 20
+  fallMultiplier: 3.5
+  lowJumpMultiplier: 3
+  layerMaskGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!54 &-4851260480955957113
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -516,7 +521,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &4063992787751484355
 GameObject:

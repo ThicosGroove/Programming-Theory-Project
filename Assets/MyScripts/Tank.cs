@@ -12,6 +12,7 @@ public class Tank : Vehicles
     [SerializeField] private int _health = 5;
     [SerializeField] private float _speed;
 
+    float fireRate = 0.5f;
 
     private void Awake()
     {
@@ -28,52 +29,31 @@ public class Tank : Vehicles
         inputs.Disable();
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         Health = _health;
         Speed = _speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        float move = inputs.Car.Moving.ReadValue<float>();
+        float shoot = inputs.Tank.Shoot.ReadValue<float>();
 
-        Vector3 move = inputs.Car.Moving.ReadValue<Vector3>();
-        float shoot = inputs.Car.Jump.ReadValue<float>();
+        Move(move);
 
-        Move();
+        fireRate -= Time.deltaTime;
 
-        if (shoot > 0.1f)
+        if (shoot > 0.1f && fireRate <= 0f)
         {
             Shoot();
         }
     }
 
-    //protected override void Move()
-    //{
-    //    transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-    //}
-
     void Shoot()
     {
+        GameObject newCannonBall = Instantiate(cannonBallPrefab, tankCannon.transform.position, Quaternion.identity, tankCannon.transform);
 
-        float fireRate = 0.5f;
-
-        fireRate -= Time.deltaTime;
-
-        if (fireRate <= 0)
-        {
-
-            GameObject newCannonBall = Instantiate(cannonBallPrefab, tankCannon.transform.position, Quaternion.identity, transform);
-
-            Debug.Log("SHOOTOUS");
-
-            fireRate = 0.5f;
-        }
-
-        // instantiate Cannon Ball
-        // from Cannon
+        fireRate = 0.5f;
     }
 }

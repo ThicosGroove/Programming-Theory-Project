@@ -7,9 +7,12 @@ public abstract class Vehicles : MonoBehaviour
     protected float Speed { get; set; }
     protected int Health { get; set; }
 
-    protected virtual void Move()
+    private float turnSpeed = 70f;
+
+    protected virtual void Move(float move)
     {
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+        transform.Rotate(Vector3.up, move * turnSpeed * Time.deltaTime);
     }
 
     protected virtual void LostHealt()

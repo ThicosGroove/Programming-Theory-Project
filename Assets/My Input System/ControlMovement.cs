@@ -28,15 +28,6 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
             ""id"": ""bd9e470a-c252-4101-adf9-b58753938454"",
             ""actions"": [
                 {
-                    ""name"": ""Moving"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""ffb92f22-5747-4ecb-a773-24c50866c853"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""PassThrough"",
                     ""id"": ""9bd0bede-cfd4-4a49-aa4e-aa01bed3a943"",
@@ -53,119 +44,18 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Moving"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e6864b3d-a4f6-4578-a791-d19a639fdb61"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""ba1a0dcc-ed13-41f5-b5a7-96997962f737"",
-                    ""path"": ""3DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""9b1760c2-ec40-4988-afec-9619eecc3f45"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""cc393068-d33c-4f84-92fb-cb5ee7ed8459"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""forward"",
-                    ""id"": ""0a3950dd-98db-4010-878a-e8ab18350ce0"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""39d9571f-7e75-4326-bcce-3a461a56bcb0"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""ARROW"",
-                    ""id"": ""3d4b072f-a7cc-4fdb-b110-1fd1357067d5"",
-                    ""path"": ""3DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""ef41e54b-2f38-46e0-aead-eb5d68f87c6f"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3d36d3b3-a69a-42e5-b209-78d054900219"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""forward"",
-                    ""id"": ""c8969b60-a9c7-4f38-8fc3-9fca38c291b4"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""1e2f0248-6b34-425a-9b3a-fb523f5c80c9"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""1afb3aaf-5de5-4fa1-bc99-d4d97d5a3e3f"",
@@ -187,37 +77,11 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""action"": ""Fall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Tank"",
-            ""id"": ""96217f68-18a6-4f0f-a7ca-6e36b0dadd43"",
-            ""actions"": [
-                {
-                    ""name"": ""Moving"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""a1793a57-9988-4f1c-92fb-92683172313e"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""7d5fc086-7ee2-4591-9d33-433494ed2996"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""85e80f76-8e74-40e2-838d-fd6af8d1a616"",
-                    ""path"": ""3DVector"",
+                    ""name"": ""AD"",
+                    ""id"": ""2993ee16-be6d-4aa5-ba01-164687989911"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -226,8 +90,8 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""d05b4525-1ea7-4040-9a3d-0df96e14c8ef"",
+                    ""name"": ""negative"",
+                    ""id"": ""4faa11ee-adf8-4048-a604-331b596e8472"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -237,8 +101,8 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""ab1c0e63-7ca3-46f8-9bce-6a6a33b02f73"",
+                    ""name"": ""positive"",
+                    ""id"": ""b6b4a999-34f3-4ce4-8518-73af591b2b40"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -246,84 +110,33 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Tank"",
+            ""id"": ""96217f68-18a6-4f0f-a7ca-6e36b0dadd43"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d5fc086-7ee2-4591-9d33-433494ed2996"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""forward"",
-                    ""id"": ""6121e053-7e45-460b-8c35-f581a58570cf"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
+                    ""name"": ""Moving"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0f81b122-5504-44b0-a3bf-76a4495ba11f"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""fccc8637-4e1f-4cd8-967b-d11cfebd4e46"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""ARROW"",
-                    ""id"": ""7556dc39-8ac4-4f3d-89ee-2bc2dd267720"",
-                    ""path"": ""3DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""fd7c9c3c-8bb8-4016-8b53-67f9c04e3aff"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""85c80b9f-f151-40f5-b893-ad94e3961f7f"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""forward"",
-                    ""id"": ""1fd44ec7-3678-4721-90ac-525170f9cd2c"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""ea9f72c1-751e-44bb-9032-85eaaa6af140"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Moving"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""58344490-fb24-41ff-b48d-ee0ea7c39a4e"",
@@ -345,6 +158,39 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""b9a6b2bb-47da-4c55-927e-cb7730071466"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7e8708c8-d1b8-43ed-9667-433a6a761770"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""6ef68af2-747e-45c3-bb72-87e5961cf207"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -353,13 +199,13 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
 }");
         // Car
         m_Car = asset.FindActionMap("Car", throwIfNotFound: true);
-        m_Car_Moving = m_Car.FindAction("Moving", throwIfNotFound: true);
         m_Car_Jump = m_Car.FindAction("Jump", throwIfNotFound: true);
         m_Car_Fall = m_Car.FindAction("Fall", throwIfNotFound: true);
+        m_Car_Moving = m_Car.FindAction("Moving", throwIfNotFound: true);
         // Tank
         m_Tank = asset.FindActionMap("Tank", throwIfNotFound: true);
-        m_Tank_Moving = m_Tank.FindAction("Moving", throwIfNotFound: true);
         m_Tank_Shoot = m_Tank.FindAction("Shoot", throwIfNotFound: true);
+        m_Tank_Moving = m_Tank.FindAction("Moving", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -419,16 +265,16 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
     // Car
     private readonly InputActionMap m_Car;
     private ICarActions m_CarActionsCallbackInterface;
-    private readonly InputAction m_Car_Moving;
     private readonly InputAction m_Car_Jump;
     private readonly InputAction m_Car_Fall;
+    private readonly InputAction m_Car_Moving;
     public struct CarActions
     {
         private @ControlMovement m_Wrapper;
         public CarActions(@ControlMovement wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Moving => m_Wrapper.m_Car_Moving;
         public InputAction @Jump => m_Wrapper.m_Car_Jump;
         public InputAction @Fall => m_Wrapper.m_Car_Fall;
+        public InputAction @Moving => m_Wrapper.m_Car_Moving;
         public InputActionMap Get() { return m_Wrapper.m_Car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -438,28 +284,28 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_CarActionsCallbackInterface != null)
             {
-                @Moving.started -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
-                @Moving.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
-                @Moving.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
                 @Jump.started -= m_Wrapper.m_CarActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnJump;
                 @Fall.started -= m_Wrapper.m_CarActionsCallbackInterface.OnFall;
                 @Fall.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnFall;
                 @Fall.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnFall;
+                @Moving.started -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
+                @Moving.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
+                @Moving.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnMoving;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Moving.started += instance.OnMoving;
-                @Moving.performed += instance.OnMoving;
-                @Moving.canceled += instance.OnMoving;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
                 @Fall.started += instance.OnFall;
                 @Fall.performed += instance.OnFall;
                 @Fall.canceled += instance.OnFall;
+                @Moving.started += instance.OnMoving;
+                @Moving.performed += instance.OnMoving;
+                @Moving.canceled += instance.OnMoving;
             }
         }
     }
@@ -468,14 +314,14 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
     // Tank
     private readonly InputActionMap m_Tank;
     private ITankActions m_TankActionsCallbackInterface;
-    private readonly InputAction m_Tank_Moving;
     private readonly InputAction m_Tank_Shoot;
+    private readonly InputAction m_Tank_Moving;
     public struct TankActions
     {
         private @ControlMovement m_Wrapper;
         public TankActions(@ControlMovement wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Moving => m_Wrapper.m_Tank_Moving;
         public InputAction @Shoot => m_Wrapper.m_Tank_Shoot;
+        public InputAction @Moving => m_Wrapper.m_Tank_Moving;
         public InputActionMap Get() { return m_Wrapper.m_Tank; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -485,35 +331,35 @@ public partial class @ControlMovement : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_TankActionsCallbackInterface != null)
             {
-                @Moving.started -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
-                @Moving.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
-                @Moving.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
                 @Shoot.started -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnShoot;
+                @Moving.started -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
+                @Moving.performed -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
+                @Moving.canceled -= m_Wrapper.m_TankActionsCallbackInterface.OnMoving;
             }
             m_Wrapper.m_TankActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Moving.started += instance.OnMoving;
-                @Moving.performed += instance.OnMoving;
-                @Moving.canceled += instance.OnMoving;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Moving.started += instance.OnMoving;
+                @Moving.performed += instance.OnMoving;
+                @Moving.canceled += instance.OnMoving;
             }
         }
     }
     public TankActions @Tank => new TankActions(this);
     public interface ICarActions
     {
-        void OnMoving(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnFall(InputAction.CallbackContext context);
+        void OnMoving(InputAction.CallbackContext context);
     }
     public interface ITankActions
     {
-        void OnMoving(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnMoving(InputAction.CallbackContext context);
     }
 }

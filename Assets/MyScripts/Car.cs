@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Car : Vehicles
 {
-    private MeshCollider m_Collider;
     private ControlMovement inputs;
+    private Rigidbody rb;
 
+    [Header("All Vehicles")]
     [SerializeField] private int _health = 1;
     [SerializeField] private float _speed;
 
-    Vector3 _jumpVelocity;
+    [Header("Car Hability Jump")]
     [SerializeField] private float _jumpHeight;
-    [SerializeField] private float _gravityValue;
+    [SerializeField] private float fallMultiplier = 3.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
+    private float jumpInput;
 
+    [Header("Collision")]
+    private MeshCollider m_Collider;
     [SerializeField] private LayerMask layerMaskGround;
 
     private void Awake()
     {
         inputs = new ControlMovement();
         m_Collider = GetComponent<MeshCollider>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void OnEnable()
@@ -40,54 +46,47 @@ public class Car : Vehicles
 
     void FixedUpdate()
     {
-        Vector3 move = inputs.Car.Moving.ReadValue<Vector3>();
-        float jump = inputs.Car.Jump.ReadValue<float>();
+        float move = inputs.Car.Moving.ReadValue<float>();
+        jumpInput = inputs.Car.Jump.ReadValue<float>();
 
-        Move();
+        Move(move);
+        GroundedCheck();
+        BetterJump();
 
-        CheckGrounded();
-
-        if (jump > 0.1f)
+        if (jumpInput > 0.1f)
         {
-            Debug.Log("JUMPOU");
             Jump();
         }
     }
 
-    //protected override void Move()
-    //{
-    //    transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-    //}
-
-    void Jump()
+    private void Jump()
     {
-        if (CheckGrounded())
+        if (GroundedCheck())
         {
-            _jumpVelocity.y += Mathf.Sqrt(_jumpHeight * _gravityValue);
-
-            //transform.Translate(Vector3.up * _jumpHeight * Time.deltaTime);
-
-            //
+            rb.velocity = Vector3.up * _jumpHeight; 
         }
     }
 
-
-
-    //NAO TA FUNCIONANDO
-    bool CheckGrounded()
+    private void BetterJump()
     {
-        RaycastHit m_Hit;
-        float extraHeight = 1.5f;
-        bool isGrounded;
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && jumpInput == 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+    }
 
-        isGrounded = Physics.BoxCast(m_Collider.bounds.center, Vector3.down, Vector3.down, out m_Hit, transform.rotation, extraHeight, layerMaskGround);
+    private bool GroundedCheck()
+    {
+        float extraHeight = 0.5f;
 
-        if (isGrounded) {
+        bool raycastHit = Physics.Raycast(m_Collider.bounds.center, Vector3.down, m_Collider.bounds.extents.y + extraHeight, layerMaskGround);
 
-            Debug.Log(m_Hit.collider.name);
-
-            return true; }
+        if (raycastHit) { return true; }
 
         return false;
-    }
+    }   
 }
