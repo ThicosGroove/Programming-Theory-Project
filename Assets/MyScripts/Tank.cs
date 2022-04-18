@@ -6,13 +6,15 @@ public class Tank : Vehicles
 {
     private ControlMovement inputs;
 
-    public GameObject cannonBallPrefab;
-    public GameObject tankCannon;
-
+    [Header("All Vehicles")]
     [SerializeField] private int _health = 5;
     [SerializeField] private float _speed;
 
+    [Header("Tank Hability Shoot")]
+    public GameObject cannonBallPrefab;
+    public GameObject tankCannon;
     float fireRate = 0.5f;
+    public Transform parentTransform = null;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class Tank : Vehicles
         float shoot = inputs.Tank.Shoot.ReadValue<float>();
 
         Move(move);
+        RoadLimits();
 
         fireRate -= Time.deltaTime;
 
@@ -52,8 +55,17 @@ public class Tank : Vehicles
 
     void Shoot()
     {
-        GameObject newCannonBall = Instantiate(cannonBallPrefab, tankCannon.transform.position, Quaternion.identity, tankCannon.transform);
+        GameObject newCannonBall = Instantiate(cannonBallPrefab, tankCannon.transform.position, Quaternion.identity, parentTransform);
 
         fireRate = 0.5f;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            LostHealt();
+            Die();
+        }
     }
 }

@@ -50,21 +50,16 @@ public class Car : Vehicles
         jumpInput = inputs.Car.Jump.ReadValue<float>();
 
         Move(move);
+        RoadLimits();
         GroundedCheck();
         BetterJump();
 
-        if (jumpInput > 0.1f)
-        {
-            Jump();
-        }
+        if (jumpInput > 0.1f) { Jump(); }
     }
 
     private void Jump()
     {
-        if (GroundedCheck())
-        {
-            rb.velocity = Vector3.up * _jumpHeight; 
-        }
+        if (GroundedCheck()) { rb.velocity = Vector3.up * _jumpHeight; }
     }
 
     private void BetterJump()
@@ -88,5 +83,14 @@ public class Car : Vehicles
         if (raycastHit) { return true; }
 
         return false;
-    }   
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            LostHealt();
+            Die();
+        }    
+    }
 }
