@@ -9,33 +9,29 @@ public class GameManager : MonoBehaviour
     GameObject player;
     GameObject environment;
 
-    [Header("CanvasUI")]
-    public TMP_Text gameOverText;
-
     [Header("Obstacles")]
     public GameObject[] obstacleList;
     Vector3 obstaclePos = new Vector3(0f, 0f, 100f);
 
     [Header("Road")]
     public GameObject roadPrefab;
-    Vector3 roadInitialPos;
-    Vector3 roadNewPos = Vector3.zero;
+    Vector3 roadInitialPos = Vector3.zero;
 
     [Header("Points")]
     public int points;
+    [SerializeField] public bool isGameOver { get; set; }
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        environment = GameObject.FindGameObjectWithTag("Environment");
         CreatingPlayer();
+        environment = GameObject.FindGameObjectWithTag("Environment");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
     {
         InvokeRepeating("CreatingObstacles", 0f, 2f);
 
-        roadInitialPos = roadPrefab.transform.position;
         InvokeRepeating("CreatingRoads", 0f, 2f);
     }
 
@@ -56,9 +52,9 @@ public class GameManager : MonoBehaviour
     }
 
     void CreatingRoads()
-    {
-        
-        roadNewPos += new Vector3(0f, 0f, 200f) + roadInitialPos;
+    {       
+        Vector3 roadNewPos = roadInitialPos + new Vector3(0f, 0f, 200f) ;
+        //Vector3 roadNextPos = roadNewPos + new Vector3(0f, 0f, 200f);
 
         GameObject newRoad = Instantiate(roadPrefab, roadNewPos, Quaternion.Euler(0f,90f,0f), environment.transform);
     }
@@ -66,11 +62,24 @@ public class GameManager : MonoBehaviour
     public void AddPoints()
     {
         points += 100;
+
+        CheckHighScore();
+    }
+
+    public void CheckHighScore()
+    {
+        if (SavingData.Instance._highScore < points)
+        {
+            SavingData.Instance._highScore = points;
+            SavingData.Instance._bestPlayer = SavingData.Instance._name;
+
+            SavingData.Instance.SaveNewData();
+        }
     }
 
     public void GameOver()
     {
-        gameOverText.enabled = true;
+        isGameOver = true;
     }
 
 }

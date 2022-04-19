@@ -24,16 +24,18 @@ public class MenuUiDataHandler : MonoBehaviour
     {
         SavingData.Instance._vehicle = CAR;
 
-        if (inputField.text != "")
-        {
-            SceneManager.LoadScene(1);
-        }
+        ChangeScene();
     }
 
     public void KeepTank()
     {
         SavingData.Instance._vehicle = TANK;
 
+        ChangeScene();
+    }
+
+    private void ChangeScene()
+    {
         if (inputField.text != "")
         {
             SceneManager.LoadScene(1);

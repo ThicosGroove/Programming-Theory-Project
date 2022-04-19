@@ -8,6 +8,8 @@ public class SavingData : MonoBehaviour
     public static SavingData Instance { get; private set; }
 
     public string _name;
+    public int _highScore;
+    public string _bestPlayer;
     public GameObject _vehicle;
 
     private void Awake()
@@ -33,30 +35,32 @@ public class SavingData : MonoBehaviour
         public GameObject Vehicle;
     }
 
-
     public void SaveNewData()
     {
         SaveData data = new SaveData();
 
-        data.Name = _name;
-        data.Vehicle = _vehicle;
+        //data.Name = _name;
+        //data.Vehicle = _vehicle;
+        data.BestPlayer = _bestPlayer;
+        data.HighScore = _highScore;
 
         string json = JsonUtility.ToJson(data);
-
-        File.AppendAllText(Application.persistentDataPath + "/savefile.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/saveData.json", json);
     }
 
     public void LoadNewData()
     {
-        string path = Application.persistentDataPath + "/savefile.json";
+        string path = Application.persistentDataPath + "/saveData.json";
 
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            _name = data.Name;
-            _vehicle = data.Vehicle;
+            //_name = data.Name;
+            //_vehicle = data.Vehicle;
+            _highScore = data.HighScore;
+            _bestPlayer = data.BestPlayer;
         }
     }
 
