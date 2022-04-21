@@ -8,15 +8,12 @@ public class CanvasUiHandler : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public TMP_Text scoreText;
     public TMP_Text currentPlayer;
+    public TMP_Text scoreText;
     public TMP_Text bestPlayer;
     public TMP_Text HighScoreText;
 
-
     public TMP_Text GameOverText;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +33,12 @@ public class CanvasUiHandler : MonoBehaviour
 
         if (gameManager.isGameOver)
         {
-            GameOverText.text = "Game Over";
+            GameOverEnableloing();
         }
     }
 
-
-
-
+    public void GameOverEnableloing()
+    {
+        GameOverText.text = "Game Over";
+    }
 }

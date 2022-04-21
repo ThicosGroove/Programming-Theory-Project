@@ -280,7 +280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318358070
 GameObject:
@@ -1012,7 +1012,7 @@ RectTransform:
   - {fileID: 447137350}
   - {fileID: 533489678}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1032,8 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 625630736}
-  scoreText: {fileID: 1819120270}
   currentPlayer: {fileID: 1854502017}
+  scoreText: {fileID: 1819120270}
   bestPlayer: {fileID: 533489679}
   HighScoreText: {fileID: 447137351}
   GameOverText: {fileID: 318358072}
@@ -1107,7 +1107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 196539664308533924, guid: 84c84d8ccb29d4943ba385efb6c74094, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 196539664308533924, guid: 84c84d8ccb29d4943ba385efb6c74094, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1153,6 +1153,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 196539664308533927, guid: 84c84d8ccb29d4943ba385efb6c74094, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1041383369}
     - target: {fileID: 196539664308533927, guid: 84c84d8ccb29d4943ba385efb6c74094, type: 3}
       propertyPath: isGameOver
       value: 0

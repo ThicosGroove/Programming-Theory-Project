@@ -19,17 +19,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Points")]
     public int points;
-    [SerializeField] public bool isGameOver { get; set; }
+    public bool isGameOver;
 
     private void Awake()
     {
         CreatingPlayer();
+
         environment = GameObject.FindGameObjectWithTag("Environment");
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
     {
+
         InvokeRepeating("CreatingObstacles", 0f, 2f);
 
         InvokeRepeating("CreatingRoads", 0f, 2f);
@@ -52,11 +54,11 @@ public class GameManager : MonoBehaviour
     }
 
     void CreatingRoads()
-    {       
-        Vector3 roadNewPos = roadInitialPos + new Vector3(0f, 0f, 200f) ;
-        //Vector3 roadNextPos = roadNewPos + new Vector3(0f, 0f, 200f);
+    {
+        Vector3 roadNewPos = roadInitialPos + new Vector3(0f, 0f, 200f);
+        Vector3 roadNextPos = roadNewPos + new Vector3(0f, 0f, 200f);
 
-        GameObject newRoad = Instantiate(roadPrefab, roadNewPos, Quaternion.Euler(0f,90f,0f), environment.transform);
+        GameObject newRoad = Instantiate(roadPrefab, roadNewPos, Quaternion.Euler(0f, 90f, 0f), environment.transform);
     }
 
     public void AddPoints()
@@ -81,5 +83,4 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
     }
-
 }

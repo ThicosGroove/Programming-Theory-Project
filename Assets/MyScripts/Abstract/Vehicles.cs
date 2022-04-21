@@ -37,7 +37,6 @@ public abstract class Vehicles : MonoBehaviour
         if (Health <= 0)
         {
             Speed = 0;
-            Debug.Log("Morreu");
 
             //Open Canvas
             gameManager.GameOver();
