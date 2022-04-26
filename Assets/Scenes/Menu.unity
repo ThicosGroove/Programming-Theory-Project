@@ -636,7 +636,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1838136102}
         m_TargetAssemblyTypeName: MenuUiDataHandler, Assembly-CSharp
-        m_MethodName: KeepTank
+        m_MethodName: KeepCar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
