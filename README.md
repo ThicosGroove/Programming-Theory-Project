@@ -7,7 +7,7 @@ Also features an abstract class for both vehicles to inheritance.
 This is the final unit of unity's learn pathway for jr. programmers.
 
 
-<img src="Gifs for Git\gameplay.gif" width="500"/>    <img src="Gifs for Git\gameplay2.gif" width="500"/>
+<img src="Gifs for Git\gameplay.gif" width="400"/>    <img src="Gifs for Git\gameplay2.gif" width="400"/>
  
 
 [1]: https://learn.unity.com/
